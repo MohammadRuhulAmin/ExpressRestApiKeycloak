@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const keycloak = require('./config/keycloak-config.js').initKeycloak();
+app.use(keycloak.middleware());
 const port = 3000;
 const testController = require('./controller/testController.js');
 app.use('/test', testController);
